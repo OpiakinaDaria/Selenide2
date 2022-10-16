@@ -12,21 +12,24 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.*;
 import static org.openqa.selenium.Keys.*;
 
-public class CardDeliveryTest{
-    String generateDate (int days) {
+public class CardDeliveryTest {
+    String generateDate(int days) {
         return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
+
     @BeforeEach
     void setUp() {
         open("http://localhost:9999/");
     }
+
     @AfterEach
     void tearDown() {
         clearBrowserCookies();
         closeWebDriver();
     }
+
     @Test
-    void CardDelivery(){
+    void сardDelivery() {
         String date = generateDate(3);
         $("[data-test-id= city] input").setValue("Москва");
         $("[data-test-id= date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
